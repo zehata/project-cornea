@@ -1,8 +1,13 @@
 import 'Types.dart';
 import 'package:tuple/tuple.dart';
 import 'package:location/location.dart';
+
+import "package:google_maps_webservice/places.dart" as GoogleMapsWebservice;
+
 import 'package:localstorage/localstorage.dart';
 import 'package:flutter/material.dart';
+
+final places = new GoogleMapsWebservice.GoogleMapsPlaces(apiKey: "AIzaSyDpznO-nerNCloDwNksobOKZT8FddBoLOA");
 
 class LocationModule {
   final LocalStorage localStorage = new LocalStorage('');
