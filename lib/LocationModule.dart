@@ -73,6 +73,29 @@ class LocationModule {
         return this.userCoordinate;
       });
   }
+
+  Future findNearbyPlaces(UserLocation userLocation, keyword) async {
+    final GoogleMapsWebservice.PlacesSearchResponse placeSearchResponse = await places.searchNearbyWithRankBy(new GoogleMapsWebservice.Location(userLocation.Lat, userLocation.Lng),
+        "distance",
+        keyword: keyword
+    );
+
+    if(placeSearchResponse.errorMessage != null) {
+      return;
+    }
+
+    return placeSearchResponse.results;
+  }
+
+  Future getPlaceDetails(placeID) async {
+    final GoogleMapsWebservice.PlacesDetailsResponse placesDetailsResponse = await places.getDetailsByPlaceId(placeID);
+
+    if (placesDetailsResponse.errorMessage != null) {
+      return;
+    }
+
+    return placesDetailsResponse.result;
+  }
 }
 
 class gettingLocationActivityState extends State<gettingLocationActivity> {

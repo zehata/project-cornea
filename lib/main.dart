@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_database/firebase_database.dart';
 
+import 'package:flutterapp/Transponder.dart';
 import 'LocationModule.dart';
 import 'ListViewComponent.dart';
 
@@ -18,8 +19,12 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Transponder transponder = new Transponder();
+
     return MaterialApp(
-      home: RandomWords()
+      home: Scaffold(
+
+      )
     );
   }
 }
